@@ -14,7 +14,7 @@ import java.time.Duration;
 
 public class MyStoreSteps {
     private WebDriver driver;
-
+    private double total;
     public MyStoreSteps(WebDriver driver) {
         this.driver = driver;
     }
@@ -62,17 +62,33 @@ public class MyStoreSteps {
         Thread.sleep(2000L);
         this.driver.findElement(CompraPage.btnAgregar).click();
         Thread.sleep(2000L);
-        //int cantidadConfirmacion = Integer.parseInt(cantidad);
-       // String precio = this.driver.findElement(CompraPage.precio).getText();
-       // String precioSinSimbolo = precio.replace("S/ ", "").trim();
-      //  System.out.println("el precio es : "+ Integer.parseInt(precioSinSimbolo));
 
+        int cantidadConfirmacion = Integer.parseInt(cantidad);
+        String precio = this.driver.findElement(CompraPage.precio).getText();
+        String precioSinSimbolo = precio.replace("S/ ", "").trim();
+       System.out.println("el precio es : "+ precioSinSimbolo);
+       Double total = Double.parseDouble(precioSinSimbolo)*2;
+        System.out.println("el total es : "+ total);
+        this.total =total;
     }
 
     public void confirmacionProducto() {
         String modal = this.driver.findElement(CompraPage.myModalLabel).getText();
         System.out.println("el texto modal es: "+ modal);
         Assert.assertEquals("\uE876Producto añadido correctamente a su carrito de compra",modal);
+        System.out.println("el total desde confirmacionProducto : "+ total);
+        String compraTotal= this.driver.findElement(CompraPage.totalCompra).getText();
+        Assert.assertEquals("S/ "+total,compraTotal);
+    }
+
+    public void finalizoCompra() {
+        this.driver.findElement(CompraPage.btnFinalizarcompra).click();
+    }
+
+    public void validarTituloCarrito() {
+        String tituloCarrito = this.driver.findElement(CompraPage.tituloCarrito).getText();
+        System.out.println("el titulo carrito es: "+ tituloCarrito);
+        Assert.assertEquals("CARRITO",tituloCarrito);
     }
 }
 

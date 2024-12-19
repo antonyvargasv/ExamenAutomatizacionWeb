@@ -5,6 +5,7 @@ import io.cucumber.java.es.Cuando;
 import io.cucumber.java.es.Dado;
 import io.cucumber.java.es.Entonces;
 import io.cucumber.java.es.Y;
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
 import static com.nttdata.core.DriverManager.getDriver;
@@ -46,5 +47,25 @@ public class MyStoreStepDef {
     @Entonces("valido en el popup la confirmación del producto agregado")
     public void validoEnElPopupLaConfirmaciónDelProductoAgregado() {
         myStoreSteps.confirmacionProducto();
+    }
+
+    @Y("valido en el popup que el monto total sea calculado correctamente")
+    public void validoEnElPopupQueElMontoTotalSeaCalculadoCorrectamente() {
+        myStoreSteps.confirmacionProducto();
+    }
+
+    @Cuando("finalizo la compra")
+    public void finalizoLaCompra() {
+        myStoreSteps.finalizoCompra();
+    }
+
+    @Entonces("valido el titulo de la pagina del carrito")
+    public void validoElTituloDeLaPaginaDelCarrito() {
+        myStoreSteps.validarTituloCarrito();
+
+    }
+
+    @Y("vuelvo a validar el calculo de precios en el carrito")
+    public void vuelvoAValidarElCalculoDePreciosEnElCarrito() {
     }
 }

@@ -10,5 +10,12 @@ public class CompraPage {
     public static By myModalLabel = By.id("myModalLabel");
     public static By precio = By.xpath("//span[@class='current-price-value']");
 
+    public static By totalCompra = By.xpath("//p[@class='product-total']/span[2]");
+
+    public static By btnFinalizarcompra = By.xpath("//div[@class='cart-content-btn']/a");
+
+
+    public static By tituloCarrito = By.xpath("//h1[contains(text(),'Carrito')]");
+
 
 }
