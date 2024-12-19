@@ -39,7 +39,6 @@ public class MyStoreSteps {
         Thread.sleep(2000L);
         String mensajeErrorAutenticacion = this.driver.findElement(LoginPage.errorAutenticacion).getText();
         Assert.assertEquals("Error de autenticación.",mensajeErrorAutenticacion);
-
     }
 
 
@@ -51,19 +50,14 @@ public class MyStoreSteps {
         wait.until(ExpectedConditions.visibilityOf(subcat));
         a.moveToElement(driver.findElement(By.cssSelector("a[href*='"+subcategoria+"']"))).build().perform();
         driver.findElement(By.cssSelector("a[href*='"+subcategoria+"']")).click();
-
     }
 
     public void agregarUnidades(String cantidad) throws InterruptedException {
         this.driver.findElement(CompraPage.producto).click();
         Thread.sleep(2000L);
         this.driver.findElement(CompraPage.cantidad).click();
-        Thread.sleep(2000L);
-        //this.driver.findElement(MenPage.cantidad).sendKeys(cantidad);
-        Thread.sleep(2000L);
         this.driver.findElement(CompraPage.btnAgregar).click();
         Thread.sleep(2000L);
-
         int cantidadConfirmacion = Integer.parseInt(cantidad);
         String precio = this.driver.findElement(CompraPage.precio).getText();
         String precioSinSimbolo = precio.replace("S/ ", "").trim();
