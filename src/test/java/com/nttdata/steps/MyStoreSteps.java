@@ -26,7 +26,6 @@ public class MyStoreSteps {
     public void typeUser(String user){
         WebElement userInputElement = driver.findElement(LoginPage.userInput);
         userInputElement.sendKeys(user);
-        //Espera explicita:
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(40));
         wait.until(ExpectedConditions.visibilityOfElementLocated(LoginPage.loginButton));
 
@@ -39,7 +38,7 @@ public class MyStoreSteps {
         this.driver.findElement(LoginPage.loginButton).click();
         Thread.sleep(2000L);
         String mensajeErrorAutenticacion = this.driver.findElement(LoginPage.errorAutenticacion).getText();
-        //Assert.assertEquals("Error de autenticación.",mensajeErrorAutenticacion);
+        Assert.assertEquals("Error de autenticación.",mensajeErrorAutenticacion);
 
     }
 
