@@ -17,5 +17,8 @@ public class CompraPage {
 
     public static By tituloCarrito = By.xpath("//h1[contains(text(),'Carrito')]");
 
+    public static By totalCompraCarrito = By.xpath("//body/main[1]/section[1]/div[1]/div[1]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]/span[2]");
+
+
 
 }

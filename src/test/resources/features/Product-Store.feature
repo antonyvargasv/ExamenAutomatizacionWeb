@@ -15,6 +15,7 @@ Característica: Product - Store
     Y vuelvo a validar el calculo de precios en el carrito
     Ejemplos:
       | usuario              | clave      | categoria | subcategoria |cantidad|
-      | vvargasa18@gmail.com | qalab2024@ | clothes   | men          |2       |
+      | vvargasa18@gmail.com  | qalab2024@ | clothes   | men          |2       |
+      | vvargasa18@gmail.com  | qalabxaxa@ | clothes   | men          |2       |
 
 

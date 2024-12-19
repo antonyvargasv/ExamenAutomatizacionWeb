@@ -35,37 +35,43 @@ public class MyStoreStepDef {
     @Cuando("navego a la categoria {string} y subcategoria {string}")
     public void navegoALaCategoriaYSubcategoria(String categoria, String subcategoria) throws InterruptedException {
         myStoreSteps.navegaCategoriaYSubcategoria(categoria, subcategoria);
-
+        screenShot();
     }
 
 
     @Y("agrego {string} unidades del primer producto al carrito")
     public void agregoUnidadesDelPrimerProductoAlCarrito(String cantidad) throws InterruptedException {
         myStoreSteps.agregarUnidades(cantidad);
+        screenShot();
     }
 
     @Entonces("valido en el popup la confirmación del producto agregado")
     public void validoEnElPopupLaConfirmaciónDelProductoAgregado() {
         myStoreSteps.confirmacionProducto();
+        screenShot();
     }
 
     @Y("valido en el popup que el monto total sea calculado correctamente")
     public void validoEnElPopupQueElMontoTotalSeaCalculadoCorrectamente() {
         myStoreSteps.confirmacionProducto();
+        screenShot();
     }
 
     @Cuando("finalizo la compra")
     public void finalizoLaCompra() {
         myStoreSteps.finalizoCompra();
+        screenShot();
     }
 
     @Entonces("valido el titulo de la pagina del carrito")
     public void validoElTituloDeLaPaginaDelCarrito() {
         myStoreSteps.validarTituloCarrito();
-
+        screenShot();
     }
 
     @Y("vuelvo a validar el calculo de precios en el carrito")
     public void vuelvoAValidarElCalculoDePreciosEnElCarrito() {
+        myStoreSteps.validarTotalEnCarrito();
+        screenShot();
     }
 }

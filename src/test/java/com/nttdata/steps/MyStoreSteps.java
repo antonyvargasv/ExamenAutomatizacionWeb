@@ -38,6 +38,8 @@ public class MyStoreSteps {
     public void login() throws InterruptedException {
         this.driver.findElement(LoginPage.loginButton).click();
         Thread.sleep(2000L);
+        String mensajeErrorAutenticacion = this.driver.findElement(LoginPage.errorAutenticacion).getText();
+        //Assert.assertEquals("Error de autenticación.",mensajeErrorAutenticacion);
 
     }
 
@@ -89,6 +91,11 @@ public class MyStoreSteps {
         String tituloCarrito = this.driver.findElement(CompraPage.tituloCarrito).getText();
         System.out.println("el titulo carrito es: "+ tituloCarrito);
         Assert.assertEquals("CARRITO",tituloCarrito);
+    }
+
+    public void validarTotalEnCarrito() {
+        String compraTotalCarrito= this.driver.findElement(CompraPage.totalCompraCarrito).getText();
+        Assert.assertEquals("S/ "+total,compraTotalCarrito);
     }
 }
 
