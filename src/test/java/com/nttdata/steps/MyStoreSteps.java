@@ -1,18 +1,16 @@
 package com.nttdata.steps;
 
-import com.nttdata.page.CategoriaPage;
 import com.nttdata.page.LoginPage;
+import com.nttdata.page.CompraPage;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
-
-import static com.nttdata.core.DriverManager.screenShot;
 
 public class MyStoreSteps {
     private WebDriver driver;
@@ -55,6 +53,27 @@ public class MyStoreSteps {
 
     }
 
+    public void agregarUnidades(String cantidad) throws InterruptedException {
+        this.driver.findElement(CompraPage.producto).click();
+        Thread.sleep(2000L);
+        this.driver.findElement(CompraPage.cantidad).click();
+        Thread.sleep(2000L);
+        //this.driver.findElement(MenPage.cantidad).sendKeys(cantidad);
+        Thread.sleep(2000L);
+        this.driver.findElement(CompraPage.btnAgregar).click();
+        Thread.sleep(2000L);
+        //int cantidadConfirmacion = Integer.parseInt(cantidad);
+       // String precio = this.driver.findElement(CompraPage.precio).getText();
+       // String precioSinSimbolo = precio.replace("S/ ", "").trim();
+      //  System.out.println("el precio es : "+ Integer.parseInt(precioSinSimbolo));
+
+    }
+
+    public void confirmacionProducto() {
+        String modal = this.driver.findElement(CompraPage.myModalLabel).getText();
+        System.out.println("el texto modal es: "+ modal);
+        Assert.assertEquals("\uE876Producto añadido correctamente a su carrito de compra",modal);
+    }
 }
 
 

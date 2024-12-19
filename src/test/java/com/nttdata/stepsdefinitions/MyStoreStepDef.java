@@ -3,6 +3,7 @@ package com.nttdata.stepsdefinitions;
 import com.nttdata.steps.MyStoreSteps;
 import io.cucumber.java.es.Cuando;
 import io.cucumber.java.es.Dado;
+import io.cucumber.java.es.Entonces;
 import io.cucumber.java.es.Y;
 import org.openqa.selenium.WebDriver;
 
@@ -34,5 +35,16 @@ public class MyStoreStepDef {
     public void navegoALaCategoriaYSubcategoria(String categoria, String subcategoria) throws InterruptedException {
         myStoreSteps.navegaCategoriaYSubcategoria(categoria, subcategoria);
 
+    }
+
+
+    @Y("agrego {string} unidades del primer producto al carrito")
+    public void agregoUnidadesDelPrimerProductoAlCarrito(String cantidad) throws InterruptedException {
+        myStoreSteps.agregarUnidades(cantidad);
+    }
+
+    @Entonces("valido en el popup la confirmación del producto agregado")
+    public void validoEnElPopupLaConfirmaciónDelProductoAgregado() {
+        myStoreSteps.confirmacionProducto();
     }
 }
